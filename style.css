@@ -2,7 +2,6 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  /* outline: 1px red dashed; */
 }
 
 html {
@@ -18,16 +17,15 @@ body {
 }
 
 .main {
-  width: 75%;
+  width: 80%;
   background-color: #000;
   border: 8px #FFF solid;
-  margin-top: 100px;
+  margin: 100px 0;
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  padding-bottom: 2%;
+  padding: 2% 0;
   font-family: "Kiwi Maru", serif;
-
 }
 
 .card {
@@ -35,12 +33,11 @@ body {
   flex-direction: column;
   align-items: center;
   position: relative;
-  width: 28%;
+  width: 30%;
   height: max-content;
   border: 1px #444343 solid;
   border-radius: 3%;
-  margin-top: 3%;
-  margin-right: 3%;
+  margin: 1%;
   padding-top: 2%;
   padding-bottom: 2%;
 }
@@ -69,6 +66,11 @@ body {
   font-size: 15px;
   font-family: "Kiwi Maru", serif;
   font-weight: 500;
+}
+
+.card__button:hover {
+  cursor: pointer;
+  color: #F0D611;
 }
 
 .product__title {
