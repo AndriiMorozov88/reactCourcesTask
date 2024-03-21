@@ -1,0 +1,126 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  /* outline: 1px red dashed; */
+}
+
+html {
+  width: 100%;
+  max-width: 100%;
+}
+
+body {
+  background-image: url('images/background.png');
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.main {
+  width: 75%;
+  background-color: #000;
+  border: 8px #FFF solid;
+  margin-top: 100px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding-bottom: 2%;
+  font-family: "Kiwi Maru", serif;
+
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  width: 28%;
+  height: max-content;
+  border: 1px #444343 solid;
+  border-radius: 3%;
+  margin-top: 3%;
+  margin-right: 3%;
+  padding-top: 2%;
+  padding-bottom: 2%;
+}
+
+.card__image{
+  width: 85%;
+  border-radius: 3%;
+}
+
+.card__product {
+  width: 80%;
+  color: #FFF;
+  margin-top: 10%;
+  line-height: 250%;
+}
+
+.card__button {
+  position: absolute;
+  bottom: 4%;
+  right: 10%;
+  background-color: #713af7;
+  border: none;
+  padding: 2%;
+  border-radius: 15%;
+  color: #FFF;
+  font-size: 15px;
+  font-family: "Kiwi Maru", serif;
+  font-weight: 500;
+}
+
+.product__title {
+  font-size: 25px;
+}
+
+.product__description {
+  display: flex;
+  width: 100%;
+}
+
+.description__text {
+  width: 60%;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  color: #A09E9E;
+  font-size: 12px;
+}
+
+.description__button {
+  color: #FFF;
+  background: none;
+  border: none;
+  font-weight: 700;
+  font-family: "Kiwi Maru", serif;
+}
+
+.description__button:hover {
+  cursor: pointer;
+  color: #F0D611;
+}
+
+.product__name {
+  width: min-content;
+  padding: 0 4%;
+  border: 1px #444343 solid;
+  border-radius: 30%;
+  font-weight: 700;
+}
+
+.product__price {
+  line-height: 150%;
+  margin-top: 5%;
+}
+
+.price__text {
+  font-size: 15px;
+  color: #A09E9E;
+}
+
+.price__sum {
+  font-size: 25px;
+  font-weight: 700;
+}
