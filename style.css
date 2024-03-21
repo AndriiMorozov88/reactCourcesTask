@@ -68,7 +68,7 @@ body {
   font-weight: 500;
 }
 
-.card__button:hover {
+.card__button:hover, .description__button:hover {
   cursor: pointer;
   color: #F0D611;
 }
@@ -97,11 +97,6 @@ body {
   border: none;
   font-weight: 700;
   font-family: "Kiwi Maru", serif;
-}
-
-.description__button:hover {
-  cursor: pointer;
-  color: #F0D611;
 }
 
 .product__name {
