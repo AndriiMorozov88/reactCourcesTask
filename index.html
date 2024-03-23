@@ -10,25 +10,35 @@
         <link href="https://fonts.googleapis.com/css2?family=Kiwi+Maru&family=Madimi+One&display=swap" rel="stylesheet">
     </head>
     <body>
-        <main class="main">
-            <section class="card">
-                <img class="card__image" src="https://i.imgur.com/CFOjAgK.jpeg" alt="image">
-                <div class="card__product">
-                    <h1 class="product__title">aaaaa</h1>
-                    <div class="product__description">
-                        <p class="description__text">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Molestias voluptatibus, sapiente expedita voluptate sed nemo suscipit eum fugit distinctio natus optio aliquid! Ea tempora commodi voluptatem nemo necessitatibus hic vel!</p>
-                        <button class="description__button" type="button">Read more</button>
+        <main class="main" data-card-container>
+            <template data-card-template>
+                <section class="card">
+                    <div class="card__image-container">
+                        <img class="card__image" src="" alt="image" data-card-image-template>
                     </div>
-                    <div class="product__name">
-                        <p>clothes</p>
+                    <div class="card__product">
+                        <div class="card__title">
+                            <h1 class="product__title" data-card-title-template></h1>
+                        </div>
+                        <div class="product__description">
+                            <p class="description__text" data-product-descr-template></p>
+                            <button class="description__button" type="button">Read more</button>
+                        </div>
+                        <div class="product__name">
+                            <p data-product-name-template>clothes</p>
+                        </div>
+                        <div class="product__price">
+                            <p class="price__text">Price:</p>
+                            <p class="price__sum" data-product-price-template></p>
+                        </div>
                     </div>
-                    <div class="product__price">
-                        <p class="price__text">Price:</p>
-                        <p class="price__sum">$100</p>
-                    </div>
-                </div>
-                <button class="card__button" type="button">Add to card</button>
-            </section>
+                    <button class="card__button" type="button">Add To Card</button>
+                </section>
+            </template>
+            <template data-template-radio>
+                <input class="radio-button" type="radio" value="#" data-template-radio-button>
+            </template>
         </main>
+        <script src="script.js"></script>
     </body>
 </html>

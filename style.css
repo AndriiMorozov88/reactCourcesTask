@@ -42,9 +42,15 @@ body {
   padding-bottom: 2%;
 }
 
-.card__image{
+.card__image-container {
+  min-height: 310px;
   width: 85%;
+}
+
+.card__image{
+  width: 100%;
   border-radius: 3%;
+  color: #FFF;
 }
 
 .card__product {
@@ -73,8 +79,14 @@ body {
   color: #F0D611;
 }
 
+.card__title {
+  height: 50px;
+  margin-bottom: 15px;
+}
+
 .product__title {
-  font-size: 25px;
+  font-size: 18px;
+  line-height: 125%;
 }
 
 .product__description {
