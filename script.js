@@ -34,18 +34,18 @@ async function createCard(object) {
         cardRadioContainerTemplate.append(radioButton);
     });
     cardImageTemplate.src = object.images[0];
-    const radioGroup = document.getElementsByName(`image${object.id}`);
-    radioGroup.forEach((element) => {
-        element.addEventListener('change', () => {
-            console.log(1);
-        })
-    })
     cardTitleTemplate.textContent = object.title;
     cardProductDescrTemplate.textContent = object.description;
     cardProductNameTemplate.textContent = object.category.name;
     cardProductPriceTemplate.textContent = `$${object.price}`;
     const card = cardTemplate.content.cloneNode(true);
     cardContainer.append(card);
+    const radioGroup = document.getElementsByName(`image${object.id}`);
+    radioGroup.forEach(element => {
+        element.addEventListener('change', () => {
+            console.log(1);
+        });
+    })
     cardRadioContainerTemplate.innerHTML = '';
 }
 
