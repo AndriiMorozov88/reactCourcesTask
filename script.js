@@ -1,4 +1,5 @@
 const cardContainer = document.querySelector('[data-card-container]');
+const loader = document.querySelector('[data-loader]');
 const cardTemplate = document.querySelector('[data-card-template]');
 const radioTemplate = document.querySelector('[data-template-radio]');
 const cardImageTemplate = cardTemplate.content.querySelector('[data-card-image-template]');
@@ -72,12 +73,12 @@ async function createCard(object) {
 
 async function showCards() {
     const goodsArray = await getData();
+    loader.classList.add('loader--hidden');
     goodsArray.forEach((element) => { 
         if (element.images.indexOf(element.category.image) === -1) {
             element.images.unshift(element.category.image);
         }
-        
         createCard(element);
     });
 }
-showCards();
+setTimeout(showCards, 5000);

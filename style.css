@@ -7,6 +7,7 @@
 html {
   width: 100%;
   max-width: 100%;
+  height: 100%;
 }
 
 body {
@@ -14,10 +15,12 @@ body {
   display: flex;
   justify-content: center;
   width: 100%;
+  min-height: 100%;
 }
 
 .main {
   width: 80%;
+  min-height: 100%;
   background-color: #000;
   border: 8px #FFF solid;
   margin: 100px 0;
@@ -26,6 +29,77 @@ body {
   flex-wrap: wrap;
   padding: 2% 0;
   font-family: "Kiwi Maru", serif;
+}
+
+.loader {
+  position: fixed;
+  display: flex;
+  color: #FFF;
+  left: 50%;
+  top: 50%;
+  font-size: 50px;
+  transform: translate(-50%, -50%);
+}
+
+.loader--hidden {
+  display: none;
+}
+
+.loader__letter {
+  animation-name: drop;
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+}
+
+.loader__letter--1 {
+  animation-delay: .5s;
+}
+
+.loader__letter--2 {
+  animation-delay: 1s;
+}
+
+.loader__letter--3 {
+  animation-delay: 1.5s;
+}
+
+.loader__letter--4 {
+  animation-delay: 2s;
+}
+
+.loader__letter--5 {
+  animation-delay: 2.5s;
+}
+
+.loader__letter--6 {
+  animation-delay: 3s;
+}
+
+.loader__letter--7 {
+  animation-delay: 3.5s;
+}
+
+.loader__letter--8 {
+  animation-delay: 4s;
+}
+
+.loader__letter--9 {
+  animation-delay: 4.5s;
+}
+
+@keyframes drop {
+  from {
+    transform: translateY(0);
+    color: rgb(237, 242, 96);
+  }
+  50% {
+    transform: translateY(5px);
+    color: rgb(56, 29, 230);
+  }
+  to {
+    transform: translateY(0);
+    color: rgb(237, 242, 96);
+  }
 }
 
 .card {
