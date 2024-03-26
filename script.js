@@ -7,11 +7,11 @@ const cardTitleTemplate = cardTemplate.content.querySelector('[data-card-title-t
 const cardProductDescrTemplate = cardTemplate.content.querySelector('[data-product-descr-template]');
 const cardProductNameTemplate = cardTemplate.content.querySelector('[data-product-name-template]');
 const cardProductPriceTemplate = cardTemplate.content.querySelector('[data-product-price-template]');
+const cardButtonTemplate = cardTemplate.content.querySelector('[data-card-button-template]');
 
 async function getData() {
     const dataPromise = await fetch('https://api.escuelajs.co/api/v1/products');
     let data = await dataPromise.json();
-    console.log(data);
     return data;
 };
 
@@ -40,6 +40,13 @@ async function createCard(object) {
     cardProductDescrTemplate.textContent = object.description;
     cardProductNameTemplate.textContent = object.category.name;
     cardProductPriceTemplate.textContent = `$${object.price}`;
+    cardButtonTemplate.id = `card-button${object.id}`;
+    if (sessionStorage.getItem(`card-button${object.id}`)) {
+        cardButtonTemplate.classList.add('card__button--choosed');
+        cardButtonTemplate.textContent = 'Choosed';
+    } else {
+        cardButtonTemplate.textContent = 'Add To Card';
+    }
     const card = cardTemplate.content.cloneNode(true);
     cardContainer.append(card);
     const radioGroup = document.getElementsByName(`image${object.id}`);
@@ -47,8 +54,20 @@ async function createCard(object) {
         element.addEventListener('change', () => {
             element.parentElement.previousElementSibling.src = correctUrlArray[element.value];
         });
-    })
+    });
+    const cardButton = document.querySelector(`#card-button${object.id}`);
+    cardButton.addEventListener('click', (event) => {
+        event.target.classList.toggle('card__button--choosed');
+        if (event.target.classList.contains('card__button--choosed')) {
+            sessionStorage.setItem(event.target.id, 'true');
+            event.target.textContent = 'Choosed';
+        } else {
+            sessionStorage.removeItem(event.target.id);
+            event.target.textContent = 'Add To Card';
+        }
+    });
     cardRadioContainerTemplate.innerHTML = '';
+    cardButtonTemplate.classList.remove('card__button--choosed');
 }
 
 async function showCards() {
@@ -61,5 +80,4 @@ async function showCards() {
         createCard(element);
     });
 }
-
 showCards();

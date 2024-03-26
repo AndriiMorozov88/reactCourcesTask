@@ -92,11 +92,17 @@ body {
   font-size: 15px;
   font-family: "Kiwi Maru", serif;
   font-weight: 500;
+  min-width: 120px;
+}
+
+.card__button--choosed {
+  background-color: rgb(155, 231, 125);
+  color: #713af7;
 }
 
 .card__button:hover, .description__button:hover {
   cursor: pointer;
-  color: #F0D611;
+  color: #635805;
 }
 
 .card__title {
