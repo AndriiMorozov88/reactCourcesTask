@@ -90,15 +90,15 @@ body {
 @keyframes drop {
   from {
     transform: translateY(0);
-    color: rgb(237, 242, 96);
+    color: #EDF260;
   }
   50% {
     transform: translateY(5px);
-    color: rgb(56, 29, 230);
+    color: #381DE6;
   }
   to {
     transform: translateY(0);
-    color: rgb(237, 242, 96);
+    color: #EDF260;
   }
 }
 
