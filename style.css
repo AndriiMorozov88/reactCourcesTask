@@ -68,6 +68,10 @@ body {
 
 }
 
+.radio-button {
+  width: 18px;
+}
+
 .card__product {
   width: 80%;
   color: #FFF;
@@ -127,7 +131,7 @@ body {
 }
 
 .product__name {
-  width: min-content;
+  width: max-content;
   padding: 0 4%;
   border: 1px #444343 solid;
   border-radius: 30%;

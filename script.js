@@ -11,25 +11,27 @@ const cardProductPriceTemplate = cardTemplate.content.querySelector('[data-produ
 async function getData() {
     const dataPromise = await fetch('https://api.escuelajs.co/api/v1/products');
     let data = await dataPromise.json();
-    // console.log(data);
+    console.log(data);
     return data;
 };
 
-async function getCorrectUrl(url) {
+function getCorrectUrl(url) {
     const wrongSymbols = ['"', '[', ']'];
     wrongSymbols.forEach((element) => {
         url = url.replaceAll(element, '');
     });
+    return url
 }
 
 
 async function createCard(object) {
-    getCorrectUrl(object.images[1]);
-    object.images.forEach((element, index) => {
+    let correctUrlArray = object.images.map(getCorrectUrl);
+    correctUrlArray.forEach((element, index) => {
         const radioButton = document.createElement('input');
         radioButton.setAttribute('type', 'radio');
         radioButton.setAttribute('name', `image${object.id}`);
         radioButton.value = index;
+        radioButton.classList.add('radio-button');
         radioButton.checked = index === 0? true : false;
         cardRadioContainerTemplate.append(radioButton);
     });
@@ -43,7 +45,7 @@ async function createCard(object) {
     const radioGroup = document.getElementsByName(`image${object.id}`);
     radioGroup.forEach(element => {
         element.addEventListener('change', () => {
-            console.log(1);
+            element.parentElement.previousElementSibling.src = correctUrlArray[element.value];
         });
     })
     cardRadioContainerTemplate.innerHTML = '';
@@ -52,7 +54,10 @@ async function createCard(object) {
 async function showCards() {
     const goodsArray = await getData();
     goodsArray.forEach((element) => { 
-        element.images.unshift(element.category.image);
+        if (element.images.indexOf(element.category.image) === -1) {
+            element.images.unshift(element.category.image);
+        }
+        
         createCard(element);
     });
 }
